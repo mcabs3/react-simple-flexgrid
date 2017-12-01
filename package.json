@@ -1,7 +1,7 @@
 {
-  "name": "react-browser-utils",
+  "name": "react-simple-flexgrid",
   "version": "0.0.1",
-  "description": "React browser utilities to help with browser events.",
+  "description": "A stupid simple React Flexgrid system",
   "author": "Miguel Caballero",
   "license": "MIT",
   "repository": {
