@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const Container = styled.div`
 	display: flex;
 	flex-direction: ${props => props.stack ? 'column' : 'row'};
-	margin: 10px 0;
+	margin: 0;
 `;
 
 const Row = ({
