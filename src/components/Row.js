@@ -8,34 +8,36 @@ const Container = styled.div`
   flex: 1;
 	flex-direction: ${props => props.stack ? 'column' : 'row'};
 	margin: 0;
+  padding: ${p => p.verticalPadding || 5}px 0;
 `;
 
 const Row = ({
-	className,
-	stack,
-	// browserUtils,
-	children
+  className,
+  gutter,
+  stack,
+  children
 }) => {
-	return (
-		<Container
-			className={className}
-			stack={stack}
-		>
-			{children}
-		</Container>
-	);
+  return (
+    <Container
+      className={className}
+      stack={stack}
+      gutter={gutter}
+    >
+      {children}
+    </Container>
+  );
 };
 
 Row.propTypes = {
-	className: PropTypes.string,
-	stack: PropTypes.bool,
-	children: PropTypes.node
+  className: PropTypes.string,
+  stack: PropTypes.bool,
+  children: PropTypes.node
 };
 
 Row.defaultProps = {
-	className: undefined,
-	stack: false,
-	children: undefined
+  className: undefined,
+  stack: false,
+  children: undefined
 };
 
 export default GridComponent(Row);

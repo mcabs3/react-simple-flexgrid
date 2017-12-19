@@ -5,10 +5,11 @@ import { getSpan } from '../utils';
 import styled from 'styled-components';
 
 const Container = styled.div`
-	flex: ${props => props.span || 0};
+	flex: ${props => props.span || 'auto'};
 	display: flex;
 	flex-direction: column;
-	justify-content: ${props => props.verticalAlign || 'flex-start'}
+	justify-content: ${props => props.verticalAlign || 'flex-start'};
+  padding: 0 ${p => p.noGutter ? 0 : 15}px;
 `;
 
 const Column = ({
