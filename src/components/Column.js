@@ -13,7 +13,8 @@ const Container = styled.div`
 `;
 
 const Column = ({
-	className,
+  className,
+  noGutter,
   verticalAlign,
   browserUtils,
   xs,
@@ -28,6 +29,7 @@ const Column = ({
   return (
     <Container
       className={className}
+      noGutter={noGutter}
       span={span}
       verticalAlign={verticalAlign}
     >
