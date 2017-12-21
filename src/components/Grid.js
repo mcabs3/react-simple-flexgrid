@@ -10,21 +10,21 @@ const Container = styled.div`
 	flex-direction: column;
 `;
 
-const Grid = ({ children, className, rowPadding, noGutter }) => (
+const Grid = ({ children, className, rowPadding, nogutter }) => (
   <Container className={className}>
     {React.Children.map(children, child =>
-      React.cloneElement(child, { rowPadding, noGutter }))}
+      React.cloneElement(child, { rowPadding, nogutter }))}
   </Container>
 )
 
 Grid.propTypes = {
-  noGutter: PropTypes.bool,
+  nogutter: PropTypes.bool,
   rowPadding: PropTypes.number,
   stack: PropTypes.bool
 };
 
 Grid.defaultProps = {
-  noGutter: false,
+  nogutter: false,
   rowPadding: 5,
   stack: false
 }

@@ -13,7 +13,7 @@ const Container = styled.div`
 
 const Row = ({
   className,
-  noGutter,
+  nogutter,
   gutter,
   stack,
   rowPadding,
@@ -23,12 +23,12 @@ const Row = ({
     <Container
       className={className}
       stack={stack}
-      noGutter={noGutter}
+      nogutter={nogutter}
       rowPadding={rowPadding}
     >
       {
         React.Children.map(children, child => React.cloneElement(child, {
-          noGutter,
+          nogutter,
           rowPadding
         }))
       }
@@ -40,14 +40,14 @@ Row.propTypes = {
   className: PropTypes.string,
   stack: PropTypes.bool,
   children: PropTypes.node,
-  noGutter: PropTypes.bool
+  nogutter: PropTypes.bool
 };
 
 Row.defaultProps = {
   className: undefined,
   stack: false,
   children: undefined,
-  noGutter: false
+  nogutter: false
 };
 
 export default GridComponent(Row);

@@ -9,12 +9,12 @@ const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: ${props => props.verticalAlign || 'flex-start'};
-  padding: 0 ${p => p.noGutter ? 0 : 15}px;
+  padding: 0 ${p => p.nogutter ? 0 : 15}px;
 `;
 
 const Column = ({
   className,
-  noGutter,
+  nogutter,
   verticalAlign,
   browserUtils,
   xs,
@@ -29,7 +29,7 @@ const Column = ({
   return (
     <Container
       className={className}
-      noGutter={noGutter}
+      nogutter={nogutter}
       span={span}
       verticalAlign={verticalAlign}
     >
