@@ -8,7 +8,7 @@ const Container = styled.div`
   flex: 1;
 	flex-direction: ${props => props.stack ? 'column' : 'row'};
 	margin: 0;
-  padding: ${p => p.rowPadding}px 0;
+  padding: ${p => p.rowpadding}px 0;
 `;
 
 const Row = ({
@@ -16,7 +16,7 @@ const Row = ({
   nogutter,
   gutter,
   stack,
-  rowPadding,
+  rowpadding,
   children
 }) => {
   return (
@@ -24,12 +24,12 @@ const Row = ({
       className={className}
       stack={stack}
       nogutter={nogutter}
-      rowPadding={rowPadding}
+      rowpadding={rowpadding}
     >
       {
         React.Children.map(children, child => React.cloneElement(child, {
           nogutter,
-          rowPadding
+          rowpadding
         }))
       }
     </Container>

@@ -10,22 +10,22 @@ const Container = styled.div`
 	flex-direction: column;
 `;
 
-const Grid = ({ children, className, rowPadding, nogutter }) => (
+const Grid = ({ children, className, rowpadding, nogutter }) => (
   <Container className={className}>
     {React.Children.map(children, child =>
-      React.cloneElement(child, { rowPadding, nogutter }))}
+      React.cloneElement(child, { rowpadding, nogutter }))}
   </Container>
 )
 
 Grid.propTypes = {
   nogutter: PropTypes.bool,
-  rowPadding: PropTypes.number,
+  rowpadding: PropTypes.number,
   stack: PropTypes.bool
 };
 
 Grid.defaultProps = {
   nogutter: false,
-  rowPadding: 5,
+  rowpadding: 5,
   stack: false
 }
 
