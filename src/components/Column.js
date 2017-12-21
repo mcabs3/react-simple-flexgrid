@@ -39,6 +39,7 @@ const Column = ({
 };
 
 Column.propTypes = {
+  nogutter: PropTypes.bool,
   verticalAlign: PropTypes.oneOf(['flex-start', 'center', 'flex-end']),
   className: PropTypes.string,
   browserUtils: PropTypes.object.isRequired,
@@ -51,6 +52,7 @@ Column.propTypes = {
 };
 
 Column.defaultProps = {
+  nogutter: false,
   verticalAlign: 'flex-start',
   className: undefined,
   xs: undefined,
