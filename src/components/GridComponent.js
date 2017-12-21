@@ -4,29 +4,55 @@ import { shouldHide } from '../utils';
 import { withBrowserUtils } from 'react-browser-utils';
 
 export default (ChildComponent) => {
-	const HideableComponent = (props) => {
-		const {
-			browserUtils,
-			hideXs,
-			hideSm,
-			hideMd,
-			hideLg,
-			hideXl
-		} = props;
+  const HideableComponent = ({
+    browserUtils,
+    hideXs,
+    hideSm,
+    hideMd,
+    hideLg,
+    hideXl,
+    ...rest
+  }) => {
+    const hide = shouldHide(browserUtils.size, {
+      hideXs,
+      hideSm,
+      hideMd,
+      hideLg,
+      hideXl
+    });
 
-		const hide = shouldHide(browserUtils.size, {
-			hideXs,
-			hideSm,
-			hideMd,
-			hideLg,
-			hideXl
-		});
+    if (hide) {
+      return null;
+    }
+    return (
+      <ChildComponent
+        browserUtils={browserUtils}
+        hideXs={hideXs}
+        hideSm={hideSm}
+        hideMd={hideMd}
+        hideLg={hideLg}
+        hideXl={hideXl}
+        {...rest }
+      />
+    );
+  };
 
-		if (hide) {
-			return null;
-		}
-		return <ChildComponent {...props } />;
-	};
+  HideableComponent.propTypes = {
+    browserUtils: PropTypes.object.isRequired,
+    hideXs: PropTypes.bool,
+    hideSm: PropTypes.bool,
+    hideMd: PropTypes.bool,
+    hideLg: PropTypes.bool,
+    hideXl: PropTypes.bool
+  };
 
-	return withBrowserUtils(HideableComponent);
+  HideableComponent.defaultProps = {
+    hideXs: false,
+    hideSm: false,
+    hideMd: false,
+    hideLg: false,
+    hideXl: false
+  };
+
+  return withBrowserUtils(HideableComponent);
 };

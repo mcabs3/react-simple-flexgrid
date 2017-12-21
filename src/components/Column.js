@@ -1,14 +1,14 @@
-import GridComponent from './GridComponent';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { getSpan } from '../utils';
 import styled from 'styled-components';
+import GridComponent from './GridComponent';
+import { getSpan } from '../utils';
 
 const Container = styled.div`
-	flex: ${props => props.span || 'auto'};
-	display: flex;
-	flex-direction: column;
-	justify-content: ${props => props.verticalAlign || 'flex-start'};
+  flex: ${props => props.span || 'auto'};
+  display: flex;
+  flex-direction: column;
+  justify-content: ${props => props.verticalAlign || 'flex-start'};
   padding: 0 ${p => p.nogutter ? 0 : 15}px;
 `;
 
