@@ -5,13 +5,14 @@ import GridComponent from './GridComponent';
 
 const Container = styled.div`
   display: flex;
-  flex: 1;
+  flex: ${props => props.flex || 0};
   flex-direction: ${props => props.stack ? 'column' : 'row'};
   margin: 0;
   padding: ${p => p.rowpadding}px 0;
 `;
 
 const Row = ({
+  flex,
   className,
   nogutter,
   stack,
@@ -20,6 +21,7 @@ const Row = ({
 }) =>
   (
     <Container
+      flex={flex}
       className={className}
       stack={stack}
       nogutter={nogutter}
@@ -36,6 +38,7 @@ const Row = ({
   );
 
 Row.propTypes = {
+  flex: PropTypes.number,
   className: PropTypes.string,
   stack: PropTypes.bool,
   children: PropTypes.node,
@@ -44,6 +47,7 @@ Row.propTypes = {
 };
 
 Row.defaultProps = {
+  flex: 0,
   className: undefined,
   stack: false,
   children: undefined,
